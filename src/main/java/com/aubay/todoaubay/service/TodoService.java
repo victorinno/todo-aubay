@@ -42,7 +42,7 @@ public class TodoService {
         return this.toDoMapper.toDto(this.repository.save(s));
     }
 
-    private TodoDto findById(final Long aLong) {
+    public TodoDto findById(final Long aLong) {
         return this.toDoMapper.toDto(this.repository.findById(aLong).orElse(null));
     }
 

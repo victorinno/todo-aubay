@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Api
@@ -26,6 +27,11 @@ public class TodoEndPoint {
     @GetMapping(path = "/{id}/statistic")
     public StatisticsTodo getStatistic(@PathVariable final Long id) {
         return this.service.getStatistic(id);
+    }
+
+    @GetMapping(path = "/{id}/start")
+    public LocalDate getStart(@PathVariable final Long id) {
+        return this.service.findById(id).getStart();
     }
 
     @PostMapping(path = "/create")
